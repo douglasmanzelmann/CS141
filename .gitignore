@@ -213,3 +213,12 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+
+################
+# CS 141 Test Files
+# -png
+# -docx
+#################
+*.png
+*.docx
