@@ -32,7 +32,10 @@ public class DouglasManzelmannP2 {
 		do {
 			userInput = getUserNumber();
 			sum = calculateSum(userInput, sum);
-			
+
+            // If the sum is greater than 100
+            // and the warning hasn't already been printed
+            // the warning will be printed.
 			if (sum > 100 && !(isSumGreaterThan100)) {
 				printSumWarning();
 				isSumGreaterThan100 = true;
@@ -90,9 +93,14 @@ public class DouglasManzelmannP2 {
 	 * @param average
 	 */
 	public static void showProjectOutput(int numberOfElements, double sum, double average) {
-		JOptionPane.showMessageDialog(null, "Number of floating point numbers entered: " + numberOfElements);
-		JOptionPane.showMessageDialog(null, "The sum of all the floating point numbers entered: " + sum);
-		JOptionPane.showMessageDialog(null, "The average of all the floating point numbers entered: " + average);
+		if (numberOfElements > 0) {
+			JOptionPane.showMessageDialog(null, "Number of floating point numbers entered: " + numberOfElements);
+			JOptionPane.showMessageDialog(null, "The sum of all the floating point numbers entered: " + sum);
+			JOptionPane.showMessageDialog(null, "The average of all the floating point numbers entered: " + average);
+		}
+		
+		else 
+			JOptionPane.showMessageDialog(null, "No floating point numbers were entered.");
 	}
 	
 	/**
