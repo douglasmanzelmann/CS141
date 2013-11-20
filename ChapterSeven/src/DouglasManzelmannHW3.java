@@ -2,12 +2,13 @@ import java.util.Scanner;
 import static java.util.Arrays.sort;
 
 /**
- * Created with IntelliJ IDEA.
- * User: dmanzelmann
+ * Author: Douglas Manzelmann
  * Date: 11/20/13
- * Time: 2:38 PM
- * To change this template use File | Settings | File Templates.
+ * Description: Homework 3
+ *              The program prompts the user for 10 (INPUT_NUMBER) numbers,
+ *              sorts them (from lowest to highest), and prints them out in order.
  */
+
 public class DouglasManzelmannHW3 {
     public static void main(String[] args) {
 
@@ -20,6 +21,12 @@ public class DouglasManzelmannHW3 {
 
     }
 
+    /**
+     * Reads inputs for an array with a length of 'size' and returns 'array'
+     *
+     * @param size the size of the array as defined by the user
+     * @return array the array returned by the function
+     */
     public static double[] readArray(int size) {
         Scanner input = new Scanner(System.in);
         double[] array = new double[size];
@@ -31,6 +38,12 @@ public class DouglasManzelmannHW3 {
         return array;
     }
 
+
+    /**
+     * Prints the array on one line seperated by spaces
+     *
+     * @param array the array to print
+     */
     public static void printArray(double[] array) {
         for (double i: array) {
             System.out.print(i + " ");
