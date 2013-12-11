@@ -11,6 +11,7 @@ public class DouglasManzelmannP3Test {
         }
 
         for (int i = 0; i < guitar.length; i++) {
+            System.out.println("Guitar #" + guitar[i].guitarID());
             guitar[i].tune();
             guitar[i].play();
 

@@ -15,6 +15,9 @@ public class DouglasManzelmannP3 {
         guitarID = ++numberOfGuitars;
     }
 
+    public int guitarID() {
+        return guitarID;
+    }
     public boolean isTuned() {
         return isTuned;
     }
@@ -25,36 +28,34 @@ public class DouglasManzelmannP3 {
 
     public void tune() {
         isTuned = true;
-        System.out.println("Guitar #" + guitarID + " is now tuned.");
+        System.out.println("Guitar is now tuned.");
     }
 
     public void play() {
         if (isTuned) {
             isPlaying = true;
-            System.out.println("Guitar #" + guitarID + " is now playing.");
+            System.out.println("Guitar is now playing.");
         }
 
         else {
-            System.out.println("Guitar #" + guitarID +  " needs to be tuned before playing it.");
+            System.out.println("Guitar needs to be tuned before playing it.");
         }
     }
 
     public void stop() {
         isPlaying = false;
-        System.out.println("Guitar #" + guitarID +  " is no longer playing.");
+        System.out.println("Guitar is no longer playing.");
     }
 
     public void playNote(String note) {
         for (int i = 0; i < STRINGS.length; i++) {
-            System.out.print(STRINGS[i]);
+            if (note == STRINGS[i]) {
+                System.out.println("Guitar is playing an " + note);
+                return;
+            }
         }
 
-        if (STRINGS.toString().lastIndexOf(note) == -1) {
-            System.out.println("This note isn't on the guitar!");
-        }
 
-        else {
-            System.out.println("Playing " + note);
-        }
+        System.out.println("This note isn't on the guitar!");
     }
 }
