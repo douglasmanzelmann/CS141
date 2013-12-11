@@ -45,8 +45,11 @@ public class DouglasManzelmannP3 {
     }
 
     public void playNote(String note) {
-        System.out.println("NOTE: " + note);
-        if (STRINGS.toString().indexOf(note) == -1) {
+        for (int i = 0; i < STRINGS.length; i++) {
+            System.out.print(STRINGS[i]);
+        }
+
+        if (STRINGS.toString().lastIndexOf(note) == -1) {
             System.out.println("This note isn't on the guitar!");
         }
 
