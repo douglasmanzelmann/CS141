@@ -13,21 +13,7 @@ public class StringTheory {
         System.out.println("Enter the number of tests: ");
         int tests = input.nextInt();
 
-        int [][] scores = new int[students][tests+1];
-
-        for (int row = 0; row < scores.length; row++) {
-            System.out.println("Enter the scores for student #" + row);
-            for (int col = 1; col < scores[row].length; col++) {
-                scores[row][col] = input.nextInt();
-
-            }
-        }
-
-        for (int row = 0; row < scores.length; row++) {
-            for (int col = 1; col < scores[row].length; col++) {
-                scores[row][0] += scores[row][col];
-            }
-        }
+        int[][] scores = getScores(students, tests);
 
         StringBuilder[][] scoreGraphs = new StringBuilder[students][tests+1];
         for (int row = 0; row < scoreGraphs.length; row++) {
@@ -70,5 +56,26 @@ public class StringTheory {
         }
 
         return graph.toString();
+    }
+
+    public static int[][] getScores(int students, int tests) {
+        Scanner input = new Scanner(System.in);
+        int[][] scores = new int[students][tests+1];
+
+        for (int row = 0; row < scores.length; row++) {
+            System.out.println("Enter the scores for student #" + (row + 1));
+            for (int col = 1; col < scores[row].length; col++) {
+                scores[row][col] = input.nextInt();
+
+            }
+        }
+
+        for (int row = 0; row < scores.length; row++) {
+            for (int col = 1; col < scores[row].length; col++) {
+                scores[row][0] += scores[row][col];
+            }
+        }
+
+        return scores;
     }
 }

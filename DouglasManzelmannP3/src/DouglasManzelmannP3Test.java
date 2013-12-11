@@ -3,10 +3,20 @@
  */
 public class DouglasManzelmannP3Test {
     public static void main(String[] args) {
-        DouglasManzelmannP3 guitar = new DouglasManzelmannP3();
+        DouglasManzelmannP3[] guitar = new DouglasManzelmannP3[10];
+        String[] STRINGS = {"E", "B", "G", "D", "A"};
 
-        System.out.println("The guitar is tuned? " + guitar.isTuned());
-        guitar.play();
-        System.out.println("The guitar is playing? " + guitar.isPlaying());
+        for (int i = 0; i < guitar.length; i++) {
+            guitar[i] = new DouglasManzelmannP3();
+        }
+
+        for (int i = 0; i < guitar.length; i++) {
+            guitar[i].tune();
+            guitar[i].play();
+
+            int randomString = (int)(Math.random() *  4);
+            guitar[i].playNote(STRINGS[randomString]);
+            guitar[i].stop();
+        }
     }
 }

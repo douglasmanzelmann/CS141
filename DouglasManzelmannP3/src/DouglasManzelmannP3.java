@@ -2,14 +2,17 @@
  * Created by dmanzelmann on 12/10/13.
  */
 public class DouglasManzelmannP3 {
-    final private int NUMBER_OF_STRINGS = 6;
-    final private String[] STRINGS = {"E", "B", "G", "D", "A", "E"};
+    final static int NUMBER_OF_STRINGS = 6;
+    final static String[] STRINGS = {"E", "B", "G", "D", "A"};
+    private static int numberOfGuitars = 0;
+    private int guitarID;
     private boolean isTuned;
     private boolean isPlaying;
 
     DouglasManzelmannP3() {
         isTuned = false;
         isPlaying = false;
+        guitarID = ++numberOfGuitars;
     }
 
     public boolean isTuned() {
@@ -22,16 +25,33 @@ public class DouglasManzelmannP3 {
 
     public void tune() {
         isTuned = true;
-        System.out.println("The guitar is now tuned.");
+        System.out.println("Guitar #" + guitarID + " is now tuned.");
     }
 
     public void play() {
-        isPlaying = true;
-        System.out.println("The guitar is now playing.");
+        if (isTuned) {
+            isPlaying = true;
+            System.out.println("Guitar #" + guitarID + " is now playing.");
+        }
+
+        else {
+            System.out.println("Guitar #" + guitarID +  " needs to be tuned before playing it.");
+        }
     }
 
     public void stop() {
         isPlaying = false;
-        System.out.println("The guitar is no longer playing.");
+        System.out.println("Guitar #" + guitarID +  " is no longer playing.");
+    }
+
+    public void playNote(String note) {
+        System.out.println("NOTE: " + note);
+        if (STRINGS.toString().indexOf(note) == -1) {
+            System.out.println("This note isn't on the guitar!");
+        }
+
+        else {
+            System.out.println("Playing " + note);
+        }
     }
 }
